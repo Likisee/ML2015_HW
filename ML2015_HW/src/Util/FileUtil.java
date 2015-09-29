@@ -9,27 +9,38 @@ import org.apache.commons.io.FileUtils;
 
 public class FileUtil {
 	
-	public static List<String> getFileContent(String filePath) {
-		return getFileContent(new File(filePath));
+	public static String defaultEncoding = "UTF-8";
+
+	public static List<String> readFileContent(String filePath, String encoding) {
+		return readFileContent(new File(filePath), encoding);
 	}
-	
-	public static List<String> getFileContent(File file) {
+
+	public static List<String> readFileContent(File file, String encoding) {
 		try {
-			List<String> lines = FileUtils.readLines(file, "UTF-8");
+			List<String> lines = null;
+			if (encoding == null) {
+				lines = FileUtils.readLines(file);
+			} else {
+				lines = FileUtils.readLines(file, encoding);
+			}
 			return lines;
 		} catch (IOException e) {
 			return new ArrayList<String>();
 		}
 	}
-	
+
 	public static void writeFileContent(String filePath, String content, String encoding, boolean append) {
 		writeFileContent(new File(filePath), content, encoding, append);
 	}
-	
+
 	public static void writeFileContent(File file, String content, String encoding, boolean append) {
-		encoding = encoding==null?"UTF-8":encoding;
+
 		try {
-			FileUtils.write(file, content, encoding, append);
+			if (encoding == null) {
+				FileUtils.write(file, content, append);
+			} else {
+				FileUtils.write(file, content, encoding, append);
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
