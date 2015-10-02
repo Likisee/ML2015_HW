@@ -119,7 +119,7 @@ public class q15 {
 //		}
 //		System.out.println("finalUpdateCnt: " + finalUpdateCnt);
 
-		// PLA: Q16
+		// PLA: Q16+Q17
 		int sumUpdateCnt = 0;
 		for (int round = 0; round < 2000; round++) {
 			List<String> tmpLines = getRandomLines(lines);
@@ -128,8 +128,8 @@ public class q15 {
 			int updateCnt = 0;
 
 			for (int i = 0; i < tmpLines.size(); i++) {
-				//List<Double> newWeights = getWeight(weights, (String) tmpLines.get(i), 1.0);
-				List<Double> newWeights = getWeight(weights, (String)tmpLines.get(i), 0.5);
+				//List<Double> newWeights = getWeight(weights, (String) tmpLines.get(i), 1.0); // Q16
+				List<Double> newWeights = getWeight(weights, (String)tmpLines.get(i), 0.5); // Q17
 				if ((weights.get(0).doubleValue() != newWeights.get(0).doubleValue()) 
 						|| (weights.get(1).doubleValue() != newWeights.get(1).doubleValue()) 
 						|| (weights.get(2).doubleValue() != newWeights.get(2).doubleValue()) 
