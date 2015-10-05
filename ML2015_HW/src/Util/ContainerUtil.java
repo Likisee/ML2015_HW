@@ -17,7 +17,7 @@ public class ContainerUtil {
 		return result;
 	}
 	
-	public static List<Double> getRealList(String str, String delim) {
+	public static List<Double> getDoubleList(String str, String delim) {
 		List<Double> result = new ArrayList<Double>();
 		String [] strArr = str.split(delim);
 		for(int i = 0; i < strArr.length; i++) {

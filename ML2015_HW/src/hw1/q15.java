@@ -35,7 +35,7 @@ public class q15 {
 		data.add(1.0);
 
 		trainingData = trainingData.replace(" ", "\t");
-		data.addAll(ContainerUtil.getRealList(trainingData, "\t"));
+		data.addAll(ContainerUtil.getDoubleList(trainingData, "\t"));
 
 		double weightSum = getWeightSum(weights, data);
 		int sign = getSign(0, weightSum);
