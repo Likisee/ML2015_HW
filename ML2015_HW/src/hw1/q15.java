@@ -86,7 +86,7 @@ public class q15 {
 		// read the training data
 		List<String> lines = FileUtil.readFileContent(CommonUtil.getHwFile("hw1", "hw1_15_train.dat"), null);
 
-		// PLA: Q15
+		// PLA: Q15: finalUpdateCnt: 45
 //		List<Double> weights = getNewWeights();
 //		int itr = 1;
 //		int finalUpdateCnt = 0;
@@ -128,8 +128,8 @@ public class q15 {
 			int updateCnt = 0;
 
 			for (int i = 0; i < tmpLines.size(); i++) {
-				//List<Double> newWeights = getWeight(weights, (String) tmpLines.get(i), 1.0); // Q16
-				List<Double> newWeights = getWeight(weights, (String)tmpLines.get(i), 0.5); // Q17
+				//List<Double> newWeights = getWeight(weights, (String) tmpLines.get(i), 1.0); // Q16: avgUpdateCnt: 36.843
+				List<Double> newWeights = getWeight(weights, (String)tmpLines.get(i), 0.5); // Q17: avgUpdateCnt: 37.493
 				if ((weights.get(0).doubleValue() != newWeights.get(0).doubleValue()) 
 						|| (weights.get(1).doubleValue() != newWeights.get(1).doubleValue()) 
 						|| (weights.get(2).doubleValue() != newWeights.get(2).doubleValue()) 
