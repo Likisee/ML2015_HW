@@ -2,7 +2,9 @@ package hw1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.TreeMap;
 
 import Util.CommonUtil;
 import Util.ContainerUtil;
@@ -109,6 +111,8 @@ public class q18 {
 
 		// Pocket PLA: Q18+Q19
 		double sumPocketErrorScore = 0.0, sumNaiveErrorScore = 0.0;
+		TreeMap<Double, Integer> result18 = new TreeMap<Double, Integer>();
+		TreeMap<Double, Integer> result19 = new TreeMap<Double, Integer>();
 		for (int round = 0; round < 2000; round++) {
 			List<String> tmpLines = getRandomLines(linesTrain);
 			List<Double> weights = getNewWeights();
@@ -151,12 +155,30 @@ public class q18 {
 
 			double pocketErrorScoreOnTest = getErrorScore(pocketWeights, linesTest);
 			sumPocketErrorScore += pocketErrorScoreOnTest;
+			if(result18.containsKey(pocketErrorScoreOnTest)) {
+				result18.put(pocketErrorScoreOnTest, result18.get(pocketErrorScoreOnTest) + 1);
+			} else {
+				result18.put(pocketErrorScoreOnTest, 1);
+			}
 			double naiveErrorScoreOnTest = getErrorScore(weights, linesTest);
 			sumNaiveErrorScore += naiveErrorScoreOnTest;
+			if(result19.containsKey(naiveErrorScoreOnTest)) {
+				result19.put(naiveErrorScoreOnTest, result19.get(naiveErrorScoreOnTest) + 1);
+			} else {
+				result19.put(naiveErrorScoreOnTest, 1);
+			}
 			System.out.println("round: " + (round + 1) + ", " + "pocketErrorScoreOnTest: " + pocketErrorScoreOnTest);
 			System.out.println("round: " + (round + 1) + ", " + "naiveErrorScoreOnTest: " + naiveErrorScoreOnTest);
 		}
 		System.out.println("avgPocketErrorScore: " + (sumPocketErrorScore / 2000.0)); // avgPocketErrorScore: 0.12198399999999682 (50) 0.1320880000000036 (100)
 		System.out.println("avgNaiveErrorScore: " + (sumNaiveErrorScore / 2000.0)); // avgNaiveErrorScore: 0.3422529999999984 (50) 0.27033299999999955 (100)
+		System.out.println();
+		for (Map.Entry<Double, Integer> entry : result18.entrySet()) {
+			System.out.println("key: " + entry.getKey() + ", value: " + entry.getValue());
+		}
+		System.out.println();
+		for (Map.Entry<Double, Integer> entry : result19.entrySet()) {
+			System.out.println("key: " + entry.getKey() + ", value: " + entry.getValue());
+		}
 	}
 }
