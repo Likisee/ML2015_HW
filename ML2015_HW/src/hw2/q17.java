@@ -15,7 +15,7 @@ public class q17 {
 	private static int precision = 100; // TA can try to increase the precision, to decrease the impact of zero in [-precision, precision]
 	private static UniformIntegerDistribution uid = new UniformIntegerDistribution(-precision, precision);
 
-	private static int getSign(double output) {
+	public static int getSign(double output) {
 		if(output > 0) {
 			return 1;
 		} else {
@@ -23,11 +23,11 @@ public class q17 {
 		}
 	}
 
-	private static int getFlipSign(int sign) {
+	public static int getFlipSign(int sign) {
 		return -1 * sign;
 	}
 	
-	private static ArrayList<Double> getTrainingInputData(int dataSize) {
+	public static ArrayList<Double> getTrainingInputData(int dataSize) {
 		ArrayList<Double> result = new ArrayList<Double>();
 		for(int i = 0; i < dataSize; i++) {
 			result.add(1.0 * uid.sample() / precision);
@@ -36,7 +36,7 @@ public class q17 {
 		return result;
 	}
 	
-	private static ArrayList<Integer> getTrainingOutputData(ArrayList<Double> trainingInputData) {
+	public static ArrayList<Integer> getTrainingOutputData(ArrayList<Double> trainingInputData) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		for(int i = 0; i < trainingInputData.size(); i++) {
 			if(Math.abs(1.0 * uid.sample() / precision) < 0.2) {
@@ -48,7 +48,7 @@ public class q17 {
 		return result;
 	}
 	
-	private static double getMinEIn(ArrayList<Double> trainingInputData, ArrayList<Integer> trainingOutputData) {
+	public static double getMinEIn(ArrayList<Double> trainingInputData, ArrayList<Integer> trainingOutputData) {
 		double minEIn;
 		double minEInPositiveS = getMinEIn(trainingInputData, trainingOutputData, 1);
 		double thetaPositiveS = theta;
@@ -89,7 +89,7 @@ public class q17 {
 		return eCnt / trainingInputData.size();
 	}
 	
-	private static double getEOut(double s, double theta) {
+	public static double getEOut(double s, double theta) {
 		return 0.5 + 0.3 * s * (Math.abs(theta) - 1.0);
 	}
 
