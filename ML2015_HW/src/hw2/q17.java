@@ -121,7 +121,7 @@ public class q17 {
 		System.out.println("avgErrorIn: " + (1.0 * sumEIn / round));	// avgErrorIn: 0.15624999999999983
 		System.out.println("avgErrorOut: " + (1.0 * sumEOut / round));	// avgErrorOut: 0.2597491999999994
 		
-		FileUtil.writeFileContent("d:\\q17.txt", calLog.toString(), null, false);
+//		FileUtil.writeFileContent("d:\\q17.txt", calLog.toString(), null, false);
 	}
 
 }
