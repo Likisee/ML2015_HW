@@ -118,8 +118,8 @@ public class q17 {
 			calLog.append("round: " + (i + 1) + ", " + "eIn: " + eIn + ", " + "eOut: " + eOut + "\r\n");
 		}
 		System.out.println();
-		System.out.println("avgErrorIn: " + (1.0 * sumEIn / round));	// avgErrorIn: 0.15624999999999983
-		System.out.println("avgErrorOut: " + (1.0 * sumEOut / round));	// avgErrorOut: 0.2597491999999994
+		System.out.println("avgErrorIn: " + (1.0 * sumEIn / round));	// Q17: avgErrorIn: 0.15624999999999983
+		System.out.println("avgErrorOut: " + (1.0 * sumEOut / round));	// Q18: avgErrorOut: 0.2597491999999994
 		
 //		FileUtil.writeFileContent("d:\\q17.txt", calLog.toString(), null, false);
 	}
