@@ -54,14 +54,14 @@ public class q13 {
 		}
 	}
 	
-	private static double getEIn(double m0, double m1, double m2) {
+	private static double getEIn(double w0, double w1, double w2) {
 		double eCnt = 0;
 		double sum = 0;
 		for(int i = 0; i < N; i++) {
 			sum = 0;
-			sum += x[i][0] * m0;
-			sum += x[i][1] * m1;
-			sum += x[i][2] * m2;
+			sum += x[i][0] * w0;
+			sum += x[i][1] * w1;
+			sum += x[i][2] * w2;
 			eCnt += getSign(sum) != y[i] ? 1 : 0;
 		}
 		return eCnt / N;
@@ -79,8 +79,8 @@ public class q13 {
 			
 			getInit();
 			regression.newSampleData(y, x);
-			double [] temp = regression.estimateRegressionParameters();
-			eIn = getEIn(temp[1], temp[2], temp[3]);
+			double [] weight = regression.estimateRegressionParameters();
+			eIn = getEIn(weight[1], weight[2], weight[3]);
 			sumEIn += eIn;
 			System.out.println("round: " + (i + 1) + ", eIn:" + eIn);
 
