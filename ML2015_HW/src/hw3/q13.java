@@ -86,7 +86,7 @@ public class q13 {
 
 		}
 		System.out.println();
-		System.out.println("avgErrorIn: " + (1.0 * sumEIn / round));	// Q13: avgErrorIn: 0.500184
+		System.out.println("avgErrorIn: " + (sumEIn / round));	// Q13: avgErrorIn: 0.5014959999999998
 
 	}
 
