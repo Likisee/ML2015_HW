@@ -140,7 +140,7 @@ public class q14 {
 			sumEOut += eOut;
 //			System.out.println("round: " + (i + 1) + ", eOut:" + eOut);
 		}
-		System.out.println("(Golden Parameters) avgErrorOut: " + (sumEOut / round));	// Q15: (Golden Parameters) avgErrorIn: 0.500184
+		System.out.println("(Golden Parameters) avgErrorOut: " + (sumEOut / round));	// Q15: (Golden Parameters) avgErrorOut: 0.13761100000000018
 
 	}
 
