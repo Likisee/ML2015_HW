@@ -19,7 +19,7 @@ public class q18 {
 		return (1.0 / (1.0 + Math.exp(-s)));
 	}
 	
-	public static double getOutput01(double output) {
+	public static double getSign(double output) {
 		if(output > 0.5) {
 			return 1.0;
 		} else {
@@ -87,7 +87,7 @@ public class q18 {
 			for(int j = 0; j < dim; j++) {
 				s += w[j] * X[i][j];
 			}
-			errCnt += (getOutput01(getSigmoid(s)) != y[i] ? 1 : 0);
+			errCnt += (getSign(getSigmoid(s)) != y[i] ? 1 : 0);
 		}
 		return errCnt / N;
 	}
