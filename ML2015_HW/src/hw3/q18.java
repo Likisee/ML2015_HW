@@ -31,7 +31,7 @@ public class q18 {
 		
 		// get N & dim
 		N = linesTrain.size();
-		dim = linesTrain.get(0).trim().split(" ").length - 1;
+		dim = ("1" +linesTrain.get(0)).trim().split(" ").length - 1;
 		
 		// initiate
 		X = new double [N][dim];
@@ -39,7 +39,7 @@ public class q18 {
 		
 		// initiate values
 		for(int i = 0; i < N; i++) {
-			String [] xy = linesTrain.get(i).trim().split(" ");
+			String [] xy = ("1" +linesTrain.get(i)).trim().split(" ");
 			for(int j = 0; j < dim; j++) {
 				X[i][j] = Double.valueOf(xy[j]);
 			}
