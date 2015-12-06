@@ -5,7 +5,7 @@ import java.util.Collections;
 
 import org.apache.commons.math3.distribution.UniformIntegerDistribution;
 
-import Util.FileUtil;
+import util.FileUtil;
 
 public class q17 {
 

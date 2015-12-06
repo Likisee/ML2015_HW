@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

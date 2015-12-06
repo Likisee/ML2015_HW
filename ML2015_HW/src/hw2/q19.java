@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import Util.CommonUtil;
-import Util.FileUtil;
+import util.CommonUtil;
+import util.FileUtil;
 
 public class q19 {
 

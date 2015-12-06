@@ -6,8 +6,8 @@ import org.apache.commons.math3.linear.LUDecomposition;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
 
-import Util.CommonUtil;
-import Util.FileUtil;
+import util.CommonUtil;
+import util.FileUtil;
 
 public class q13 {
 

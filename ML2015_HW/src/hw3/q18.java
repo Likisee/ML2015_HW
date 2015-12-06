@@ -3,8 +3,8 @@ package hw3;
 import java.util.ArrayList;
 import java.util.List;
 
-import Util.CommonUtil;
-import Util.FileUtil;
+import util.CommonUtil;
+import util.FileUtil;
 
 public class q18 {
 		
