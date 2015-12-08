@@ -71,30 +71,6 @@ public class q16 {
 //			svm_model model = libsvm.svm.svm_train(problem, params);			
 //		}
 
-		// calculation Ein
-		double [][] w = {{-0.999976,	6.49E-07,	2.66E-07},
-				{-0.999945,	5.90E-06,	4.68E-05},
-				{-0.999258,	-4.24E-04,	2.61E-04},
-				{-1.00347,	-6.55E-04,	1.20E-04},
-				{-1.00347,	5.93E-02,	6.96E-03},};
-		for(int wIndex = 0; wIndex < w.length; wIndex++) {
-			double eCnt = 0;
-			int ans = 0;
-			for(int i = 0; i < linesTrain.size(); i++) {
-				String [] oneLineData = linesTrain.get(i).trim().replaceAll("\\s+", " ").split(" ");
-				if(Double.parseDouble(oneLineData[0]) == 8) {
-					ans = 1;
-				} else {
-					ans = -1;
-				}
-				if(ans * (w[wIndex][0] + w[wIndex][1]*Double.parseDouble(oneLineData[1]) + w[wIndex][2]*Double.parseDouble(oneLineData[2])) < 0) {
-					eCnt++;
-				}
-			}
-//			System.out.println(c[wIndex] + " eCnt: " + eCnt );
-			System.out.println(c[wIndex] + " eIn: " + (eCnt / linesTrain.size()) );
-		}
-
 	}
 
 }
