@@ -19,9 +19,9 @@ public class q15 {
 		for(int i = 0; i < linesTrain.size(); i++) {
 			String [] oneLineData = linesTrain.get(i).trim().replaceAll("\\s+", " ").split(" ");
 			if(Double.parseDouble(oneLineData[0]) == 0) {
-				sbf.append("+1 ");
+				sbf.append("+1");
 			} else {
-				sbf.append("-1 ");
+				sbf.append("-1");
 			}
 			sbf.append(" 1:" + oneLineData[1]);
 			sbf.append(" 2:" + oneLineData[2]);
