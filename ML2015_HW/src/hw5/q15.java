@@ -59,7 +59,7 @@ public class q15 {
 //		w = model.SVs' * model.sv_coef;
 //		b = -model.rho;
 		
-//		params.C = Math.pow(10, -2);
+//		params.C = Math.pow(10, 2);
 //		svm_model model = libsvm.svm.svm_train(problem, params); // EXCEPTION!!
 		
 //		double [] c = {-6, -4, -2, 0, 2};
