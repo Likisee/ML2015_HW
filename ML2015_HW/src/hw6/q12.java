@@ -197,16 +197,26 @@ public class q12 {
 		
 		// start iteration
 		for(int i = 0; i < ROUND; i++) {
+			
+			// q15
+			double sumU= 0.0;
+			for(int j = 0; j < u.length; j++) {
+				sumU += u[j];
+			}
+			System.out.println("U" + (i+1) + ": sumU: " + sumU);
+			
 			double [] result = getResult(arrTrainX, arrTrainY);
 			indexArr[i] = result[0];
 			signArr[i] = result[1];
 			thetaArr[i] = result[2];
 			alphaArr[i] = result[3];
 			
+			// q12 & q13
+			System.out.println("itr " + (i+1) + ": eIN: " + getErrRate((int)indexArr[i], signArr[i], thetaArr[i], arrTrainX, arrTrainY) + ", index: " + (int)indexArr[i]);
 			if(i == 0) {
-				System.out.print("itr " + i + ": " + getErrRate((int)indexArr[i], signArr[i], thetaArr[i], arrTrainX, arrTrainY));
-				break;
+				System.out.println("itr " + (i+1) + ": alpha: " + alphaArr[i]);
 			}
+			
 		}
 	}
 
