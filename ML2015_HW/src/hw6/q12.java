@@ -116,6 +116,7 @@ public class q12 {
 			sumU += u[i];
 		}
 		double errRate = err / sumU;
+		result[4] = errRate;
 		double factor = Math.sqrt( (1-errRate)/errRate );
 	    double alpha = Math.log(factor);
 	    result[3] = alpha;
@@ -195,6 +196,7 @@ public class q12 {
 			u[i] = 1.0 / u.length;
 		}
 		
+		double minErrRate = Double.MAX_VALUE; // for q16
 		// start iteration
 		for(int i = 0; i < ROUND; i++) {
 			
@@ -211,6 +213,12 @@ public class q12 {
 			thetaArr[i] = result[2];
 			alphaArr[i] = result[3];
 			
+			// update minErrRate
+			System.out.println("itr " + (i+1) + ": et: " + result[4]);
+			if(minErrRate > result[4]) {
+				minErrRate = result[4];
+			}
+			
 			// q12 & q13
 			System.out.println("itr " + (i+1) + ": eIN: " + getErrRate((int)indexArr[i], signArr[i], thetaArr[i], arrTrainX, arrTrainY) + ", index: " + (int)indexArr[i]);
 			if(i == 0) {
@@ -218,6 +226,12 @@ public class q12 {
 			}
 			
 		}
+		
+		// q16
+		System.out.println("minErrRate: " + minErrRate);
+		
+		
+		
 	}
 
 }
