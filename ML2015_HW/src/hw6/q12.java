@@ -108,7 +108,7 @@ public class q12 {
 		
 		// calculate factor -> alpha
 		int index = (int)result[0];
-		double sign = result[1];
+		int sign = (int)result[1];
 		double theta = result[2];
 		double err = result[4];
 		double sumU = 0;
@@ -140,7 +140,7 @@ public class q12 {
    	   return result;
 	}
 	
-	private static double getErrRateLittleG(int index, double sign, double theta, double [][] x, double [] y) {
+	private static double getErrRateLittleG(int index, int sign, double theta, double [][] x, double [] y) {
 		double errCnt = 0;
 		if(sign == 1) { 
 			for(int i = 0; i < x.length; i++) {
@@ -162,7 +162,7 @@ public class q12 {
 		double [] yAnswer = new double[x.length];
 		for(int i = 0; i <= t; i++) {
 			int index = (int)indexArr[i];
-			double sign = signArr[i];
+			int sign = (int)signArr[i];
 			double theta = thetaArr[i];
 			double alpha = alphaArr[i];
 			for(int j = 0; j < x.length; j++) {
@@ -193,15 +193,15 @@ public class q12 {
 		String[] lineData = null;
 		double[][] arrTrainX = new double[linesTrain.size()][2];
 		double[] arrTrainY = new double[linesTrain.size()];
-		double[][] arrTestX = new double[linesTest.size()][2];
-		double[] arrTestY = new double[linesTrain.size()];
 		for(int i = 0; i < linesTrain.size(); i++) {
 			lineData = linesTrain.get(i).trim().split(" ");
 			arrTrainX[i][0] = Double.parseDouble(lineData[0]);
 			arrTrainX[i][1] = Double.parseDouble(lineData[1]);
 			arrTrainY[i] = Double.parseDouble(lineData[2]);
 		}
-		for(int i = 0; i < linesTrain.size(); i++) {
+		double[][] arrTestX = new double[linesTest.size()][2];
+		double[] arrTestY = new double[linesTest.size()];
+		for(int i = 0; i < linesTest.size(); i++) {
 			lineData = linesTest.get(i).trim().split(" ");
 			arrTestX[i][0] = Double.parseDouble(lineData[0]);
 			arrTestX[i][1] = Double.parseDouble(lineData[1]);
@@ -245,7 +245,7 @@ public class q12 {
 			}
 			
 			// q12 & q13
-			System.out.println("itr " + (i+1) + ": eIN: " + getErrRateLittleG((int)indexArr[i], signArr[i], thetaArr[i], arrTrainX, arrTrainY) + ", index: " + (int)indexArr[i]);
+			System.out.println("itr " + (i+1) + ": eINg: " + getErrRateLittleG((int)indexArr[i], (int)signArr[i], thetaArr[i], arrTrainX, arrTrainY) + ", index: " + (int)indexArr[i]);
 			if(i == 0) {
 				System.out.println("itr " + (i+1) + ": alpha: " + alphaArr[i]);
 			}
@@ -257,7 +257,17 @@ public class q12 {
 		
 		// q14
 		for(int i = 0; i < ROUND; i++) {
-			System.out.println("eG " + (i+1) + ": " + getErrRateBigG(indexArr, signArr, thetaArr, alphaArr, arrTrainX, arrTrainY, i));
+			System.out.println("eING " + (i+1) + ": " + getErrRateBigG(indexArr, signArr, thetaArr, alphaArr, arrTrainX, arrTrainY, i));
+		}
+		
+		// q17
+		for(int i = 0; i < ROUND; i++) {
+			System.out.println("eOUTg " + (i+1) + ": " + getErrRateLittleG((int)indexArr[i], (int)signArr[i], thetaArr[i], arrTestX, arrTestY));
+		}
+		
+		// q18
+		for(int i = 0; i < ROUND; i++) {
+			System.out.println("eOUTG " + (i+1) + ": " + getErrRateBigG(indexArr, signArr, thetaArr, alphaArr, arrTestX, arrTestY, i));
 		}
 		
 	}
