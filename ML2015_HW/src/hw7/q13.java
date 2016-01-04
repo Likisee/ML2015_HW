@@ -122,7 +122,7 @@ public class q13 {
 			subRoot.theta = bestTheta;
 			subRoot.left = left;
 			subRoot.right = right;
-			subRoot.info(yIndex); // 只輸出 branch function nodes
+			subRoot.info(yIndex); // Q13: 輸出  branch function nodes
 			if(left.getGini(yIndex) > 0) { // 還可以分下去
 				waiting.add(left);	
 			}
@@ -131,30 +131,32 @@ public class q13 {
 			}
 		}
 		
-//		showTree(root); // 很醜~ 只有我看得懂!!
+//		showTree(root); // Q13: 輸出  branch function nodes (含LEAF值,RIGHT-FIRST-DFS,有點醜,大概只有我自己看得懂,但是畢竟本題不是要考資料結構,所已將就將就!!)
 
 //		System.out.println(predict(root, nodesTrain.get(0))); // Test一下, [0.757222 0.633831 -1] -> -1
 		
-		double errCnt = 0;
+		// Q14: eIn
+		double eInCnt = 0;
 		for(int i = 0; i < nodesTrain.size(); i++) {
 			if(predict(root, nodesTrain.get(i)) != nodesTrain.get(i).get(yIndex)) {
-				errCnt ++;
+				eInCnt ++;
 			}
 		}
-		System.out.println(errCnt);
+		System.out.println(eInCnt);
 		System.out.println(nodesTrain.size());
-		System.out.println(errCnt / nodesTrain.size());
+		System.out.println(eInCnt / nodesTrain.size());
 		System.out.println();
 		
-		errCnt = 0;
+		// Q15: eOut
+		double eOutCnt = 0;
 		for(int i = 0; i < nodesTest.size(); i++) {
 			if(predict(root, nodesTest.get(i)) != nodesTest.get(i).get(yIndex)) {
-				errCnt ++;
+				eOutCnt ++;
 			}
 		}
-		System.out.println(errCnt);
+		System.out.println(eOutCnt);
 		System.out.println(nodesTest.size());
-		System.out.println(errCnt / nodesTest.size());
+		System.out.println(eOutCnt / nodesTest.size());
 		System.out.println();
 	}
 
