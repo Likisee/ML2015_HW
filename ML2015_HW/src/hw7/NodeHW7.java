@@ -36,6 +36,34 @@ public class NodeHW7 {
 		}
 	}
 	
+	public int getLeftVote(int yIndex) {
+		int vote = 0;
+		if(left != null) {
+			for(int i = 0; i < left.nodes.size(); i++) {
+				vote += left.nodes.get(i).get(yIndex);
+			}
+		}
+		if(vote >= 0) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
+	
+	public int getRightVote(int yIndex) {
+		int vote = 0;
+		if(right != null) {
+			for(int i = 0; i < right.nodes.size(); i++) {
+				vote += right.nodes.get(i).get(yIndex);
+			}
+		}
+		if(vote >= 0) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
