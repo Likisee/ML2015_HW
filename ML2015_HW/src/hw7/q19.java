@@ -19,9 +19,9 @@ public class q19 {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		while(result.size() < count) {
 			int index = rand.nextInt(max);
-			if(!result.contains(index)) {
+//			if(!result.contains(index)) { // comment 拿掉就變成不可以重複取
 				result.add(index);
-			}
+//			}
 		}
 		Collections.sort(result);
 		return result;
@@ -99,9 +99,10 @@ public class q19 {
 			
 			ArrayList<NodeHW7> waiting = new ArrayList<NodeHW7>();
 			NodeHW7 root = new NodeHW7();
-//			root.nodes = getNewNodesTrain(nodesTrain, nodesTrain.size() / 2); // N' = N / 2
-//			root.nodes = getNewNodesTrain(nodesTrain, (int) (0.8 * nodesTrain.size())); // N' = 0.8 * N
-			root.nodes = getNewNodesTrain(nodesTrain, rand.nextInt(nodesTrain.size()) + 1); // N' = rand() * N
+//			root.nodes = getNewNodesTrain(nodesTrain, nodesTrain.size() / 2); // N' = N / 2 (不可重複取)
+//			root.nodes = getNewNodesTrain(nodesTrain, (int) (0.8 * nodesTrain.size())); // N' = 0.8 * N (不可重複取)
+//			root.nodes = getNewNodesTrain(nodesTrain, rand.nextInt(nodesTrain.size()) + 1); // N' = rand() * N (不可重複取)
+			root.nodes = getNewNodesTrain(nodesTrain, nodesTrain.size()); // N' = N (可重複取)
 			if(root.getGini(yIndex) > 0) { // 還可以分下去
 				waiting.add(root);			
 			}
@@ -160,7 +161,7 @@ public class q19 {
 				}
 			}
 			
-			// eIn
+			// Q19: eIn
 			double eInCnt = 0;
 			for(int i = 0; i < nodesTrain.size(); i++) {
 				if(predict(root, nodesTrain.get(i)) != nodesTrain.get(i).get(yIndex)) {
@@ -168,7 +169,7 @@ public class q19 {
 				}
 			}
 			double eIn = eInCnt / nodesTrain.size();
-			// eOut
+			// Q20: eOut
 			double eOutCnt = 0;
 			for(int i = 0; i < nodesTest.size(); i++) {
 				if(predict(root, nodesTest.get(i)) != nodesTest.get(i).get(yIndex)) {
@@ -179,7 +180,7 @@ public class q19 {
 			System.out.println("T " + (round+1) + ": " + "eIn: " + eIn + ", eOut: " + eOut);
 			log.append("T," + (round+1) + ",eIn," + eIn + ",eOut," + eOut + "\r\n");
 		}
-		FileUtil.writeFileContent("D:\\result.csv", log.toString(), null, false);		
+		FileUtil.writeFileContent("D:\\Q19Q20.csv", log.toString(), null, false);		
 	
 	}
 

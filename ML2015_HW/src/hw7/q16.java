@@ -20,9 +20,9 @@ public class q16 {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		while(result.size() < count) {
 			int index = rand.nextInt(max);
-			if(!result.contains(index)) {
+//			if(!result.contains(index)) { // comment 拿掉就變成不可以重複取
 				result.add(index);
-			}
+//			}
 		}
 		Collections.sort(result);
 		return result;
@@ -95,9 +95,10 @@ public class q16 {
 			
 			ArrayList<NodeHW7> waiting = new ArrayList<NodeHW7>();
 			NodeHW7 root = new NodeHW7();
-//			root.nodes = getNewNodesTrain(nodesTrain, nodesTrain.size() / 2); // N' = N / 2
-//			root.nodes = getNewNodesTrain(nodesTrain, (int) (0.8 * nodesTrain.size())); // N' = 0.8 * N
-			root.nodes = getNewNodesTrain(nodesTrain, rand.nextInt(nodesTrain.size()) + 1); // N' = rand() * N
+//			root.nodes = getNewNodesTrain(nodesTrain, nodesTrain.size() / 2); // N' = N / 2 (不可重複取)
+//			root.nodes = getNewNodesTrain(nodesTrain, (int) (0.8 * nodesTrain.size())); // N' = 0.8 * N (不可重複取)
+//			root.nodes = getNewNodesTrain(nodesTrain, rand.nextInt(nodesTrain.size()) + 1); // N' = rand() * N (不可重複取)
+			root.nodes = getNewNodesTrain(nodesTrain, nodesTrain.size()); // N' = N (可重複取)
 			if(root.getGini(yIndex) > 0) { // 還可以分下去
 				waiting.add(root);			
 			}
