@@ -16,60 +16,6 @@ public class q19 {
 	private static int size = 0;
 	private static double [][] x = null;
 	
-//	private static int getKNNknbor(int k, double [] xm) {
-//		
-//		TreeMap<Double, ArrayList<Integer>> sortMap = new TreeMap<Double, ArrayList<Integer>>();
-//		ArrayList<Integer> arr = null;
-//		for(int i = 0; i < y_train.length; i++) {
-//			double distance = 0;
-//			for(int j = 0; j < size; j++) {
-//				distance += Math.pow((x_train[i][j] - xm[j]), 2);
-//			}
-//			if(sortMap.containsKey(distance)) {
-//				arr = sortMap.get(distance);
-//				arr.add(i);
-//				sortMap.put(distance, arr);
-//			} else {
-//				arr = new ArrayList<Integer>();
-//				arr.add(i);
-//				sortMap.put(distance, arr);
-//			}
-//		}
-//		
-//		ArrayList<Integer> sortArray = new ArrayList<Integer>();
-//		for(Map.Entry<Double, ArrayList<Integer>> entry: sortMap.entrySet()) {
-//			sortArray.addAll(entry.getValue());
-//		}
-//		
-//		int sum = 0;
-//		for(int i = 0; i < k; i++) {
-//			sum += y_train[sortArray.get(i)];
-//		}
-//		if(sum >= 0) {
-//			return 1;
-//		} else {
-//			return -1;
-//		}
-//	}
-//	
-//	private static int getKNNuniform(double gumma, double [] xm) {
-//		
-//		double sum = 0;
-//		for(int i = 0; i < y_train.length; i++) {
-//			double distance = 0;
-//			for(int j = 0; j < size; j++) {
-//				distance += Math.pow((x_train[i][j] - xm[j]), 2);
-//			}
-//			sum += y_train[i] * Math.exp(-gumma * distance);
-//		}
-//		
-//		if(sum >= 0) {
-//			return 1;
-//		} else {
-//			return -1;
-//		}
-//	}
-	
 	private static double getEinFromKMeans(int K, int updateRound) {
 		double result = 0;
 		double [][] center = getIntitialCenters(K);
