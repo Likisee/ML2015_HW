@@ -50,8 +50,8 @@ public class AdaBoost {
 			}
 			thetaArr.add(1.0); // 正無限大
 			
-			for(int i = 0; i < thetaArr.size() / 100; i++) {
-				double theta = thetaArr.get(i * 100);
+			for(int i = 0; i < thetaArr.size() / 1; i++) {
+				double theta = thetaArr.get(i * 1);
 				// sign = +1;
 				double errPositive = 0;
 				for(int j = 0; j < x.length; j++) {
